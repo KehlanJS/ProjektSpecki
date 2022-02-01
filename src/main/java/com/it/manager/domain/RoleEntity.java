@@ -3,13 +3,13 @@ package com.it.manager.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Table(name = "roles")
+@ToString
 public class RoleEntity {
 
     @Id
@@ -21,7 +21,4 @@ public class RoleEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "Roles_Name")
     Roles roleName;
-
-    @OneToMany(mappedBy = "role")
-    List<UserEntity> users;
 }

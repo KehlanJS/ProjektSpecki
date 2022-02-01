@@ -1,15 +1,19 @@
 package com.it.manager.domain;
 
 import lombok.*;
+import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
+@Builder
 @NoArgsConstructor
 @RequiredArgsConstructor
+@AllArgsConstructor
 @Table(name = "Users")
 public class UserEntity {
 
@@ -31,18 +35,16 @@ public class UserEntity {
     private Instant created;
 
     @NonNull
-    @Column(name = "login", nullable = false)
+    @Column(name = "login", nullable = false, unique = true)
     private String login;
 
     @NonNull
     @Column(name = "password", nullable = false)
     private String password;
 
-    @NonNull
     @OneToMany(mappedBy = "userId")
     List<RewardEntity> rewards;
 
-    @NonNull
     @OneToMany(mappedBy = "userId")
     List<IdeaEntity> ideas;
 

@@ -21,9 +21,9 @@ class UserRepositoryTest {
 
     @Test
     public void test() {
-        var duparola = rolesRepository.save(new RoleEntity(Roles.ADMIN));
-        userRepository.save(new UserEntity("dupa", "cyce", Instant.now(), "hehe", "password",
-                new ArrayList<>(), new ArrayList<>(), duparola));
+        var role = rolesRepository.save(new RoleEntity(Roles.ADMIN));
+        userRepository.save(new UserEntity("aa", "bb", Instant.now(), "hehe", "password",
+                new ArrayList<>(), new ArrayList<>(), role));
     }
 
 }
